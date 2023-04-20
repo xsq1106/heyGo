@@ -37,6 +37,15 @@
                 }
                 
                 }
+                ,{
+                    "path" : "search/search",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
             ]
 		}
 	],
@@ -79,6 +88,7 @@
 		]
 	},
 	"usingComponents": {
-	  "van-search": "@vant/weapp/search/index"
+	  "van-search": "@vant/weapp/search/index",
+	  "my-search": "/components/my-search/my-search"
 	}
 }
