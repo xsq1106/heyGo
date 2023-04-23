@@ -37,7 +37,9 @@
 </template>
 
 <script>
+	import badgeMix from '@/mixins/tabbar-badge.js'
 	export default {
+		mixins: [badgeMix],
 		data() {
 			return {
 				value: '',
@@ -76,7 +78,6 @@
 			},
 			async getfloorList() {
 				const { data: res } = await uni.$http.get('/api/public/v1/home/floordata')
-				console.log(res, 'res')
 				if (res.meta.status !== 200) return uni.$showMsg
 				uni.$showMsg('数据请求成功')
 				res.message.forEach(item => {
@@ -88,6 +89,7 @@
 				console.log(this.floorList, 'this.floorList')
 			},
 			gotoSearch() {
+				console.log('gotosearchhhhh')
 				uni.navigateTo({
 					url: '/subpkg/search/search'
 				})

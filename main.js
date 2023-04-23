@@ -2,15 +2,27 @@
 // #ifndef VUE3
 import Vue from 'vue'
 import App from './App'
+import vuex from 'vuex'
+import store from './store/index.js'
+
 // 导入网络请求的包
 import { $http } from '@escook/request-miniprogram'
 
 uni.$http = $http
 // 配置请求根路径
 $http.baseUrl = 'https://api-ugo-web.itheima.net'
+// https://api-ugo-web.itheima.net
+// http://www.esinsis.tech
 // 请求拦截器
 $http.beforeRequest = function(options) {
 	uni.showLoading({title: '数据加载中...'})
+	
+	// 为非登录页面加authrorization字段
+	if (options.url.indexOf('/my/') !== -1) {
+		options.header = {
+			Authrorization: store.state.m_user.token
+		}
+	}
 }
 // 响应拦截器
 $http.afterRequest = function(options) {
@@ -31,7 +43,8 @@ Vue.config.productionTip = false
 App.mpType = 'app'
 
 const app = new Vue({
-    ...App
+    ...App,
+	store,
 })
 app.$mount()
 // #endif

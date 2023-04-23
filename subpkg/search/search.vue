@@ -36,7 +36,7 @@
 			};
 		},
 		onLoad() {
-			this.historyList = JSON.parse(uni.getStorageSync('searchHis'))
+			this.historyList = JSON.parse(uni.getStorageSync('searchHis') || '[]')
 		},
 		methods: {
 			input(e) {

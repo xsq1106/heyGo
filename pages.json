@@ -9,7 +9,6 @@
         }
         ,{
             "path" : "pages/cart/cart"
-            
         }
         ,{
             "path" : "pages/my/my"
@@ -33,15 +32,15 @@
                     "style" :                                                                                    
                 {
                     "navigationBarTitleText": "商品列表",
-                    "enablePullDownRefresh": false
+                    "enablePullDownRefresh": true,
+					"onReachBottomDistance": 150
                 }
                 
-                }
-                ,{
+                },{
                     "path" : "search/search",
                     "style" :                                                                                    
                 {
-                    "navigationBarTitleText": "",
+                    "navigationBarTitleText": "搜索",
                     "enablePullDownRefresh": false
                 }
                 
@@ -89,6 +88,9 @@
 	},
 	"usingComponents": {
 	  "van-search": "@vant/weapp/search/index",
-	  "my-search": "/components/my-search/my-search"
+	  "my-search": "/components/my-search/my-search",
+	  "my-goods": "/components/my-goods/my-goods",
+	  "my-address": "/components/my-address/my-address",
+	  "my-login": "/components/my-login/my-login"
 	}
 }
